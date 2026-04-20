@@ -4,7 +4,7 @@ import { getLastFmTop } from '@/lib/lastfm';
 import { getBooks } from '@/lib/books';
 
 export default async function HomePage() {
-  const [{ manga, manhwa }, { artists, albums }, books] = await Promise.all([
+  const [{ manga, manhwa }, { artists, albums, recent }, books] = await Promise.all([
     getAniListCollection(),
     getLastFmTop(),
     getBooks(),
@@ -16,6 +16,7 @@ export default async function HomePage() {
       manhwa={manhwa}
       artists={artists}
       albums={albums}
+      recent={recent}
       books={books}
     />
   );
